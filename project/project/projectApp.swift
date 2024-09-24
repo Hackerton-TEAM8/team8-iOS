@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct projectApp: App {
+    
+    @StateObject var container: DIContainer = .init(services: Services())
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AuthView(authViewModel: .init(container: container))
         }
     }
 }
