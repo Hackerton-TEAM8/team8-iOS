@@ -19,7 +19,7 @@ struct AuthView: View {
                 SignInIntroView()
                     .environmentObject(authViewModel)
             case .authenticated:
-                TabView()
+                MainTabView()
             }
         }
     }

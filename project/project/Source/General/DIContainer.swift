@@ -22,8 +22,8 @@ class DIContainer: ObservableObject {
     }
 }
 
-//extension DIContainer {
-//    static var stub: DIContainer {
-//        .init(services: StubServices())
-//    }
-//}
+extension DIContainer {
+    static var stub: DIContainer {
+        .init(services: StubServices())
+    }
+}
