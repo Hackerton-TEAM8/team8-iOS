@@ -28,7 +28,7 @@ struct FollowingView: View {
             }
             .padding(20)
         }
-        .accentColor(.black)
+        
     }
     
     
@@ -36,9 +36,8 @@ struct FollowingView: View {
     var topNavigationVar: some View {
         HStack {
             Text("Feed")
-                .fontWeight(.bold)
-                .foregroundStyle(.black)
-                .font(.system(size: 21))
+                .foregroundStyle(Color.content)
+                .font(.title)
             Spacer()
             Button {
                 
@@ -47,7 +46,7 @@ struct FollowingView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(width: 24)
-                    .foregroundStyle(.black)
+                    .foregroundStyle(Color.content)
             }
         }
         
@@ -56,9 +55,9 @@ struct FollowingView: View {
     @ViewBuilder
     func feedView(item: Int) -> some View {
         ZStack {
-            Rectangle()
-                .fill(Color.primary.opacity(0.1))
-                .frame( height: 400)
+            Image("capsule")
+                .resizable()
+                .scaledToFit()
                 .cornerRadius(15)
             VStack {
                 HStack {
@@ -67,6 +66,8 @@ struct FollowingView: View {
                         .scaledToFit()
                         .foregroundStyle(.black)
                         .frame(width: 38)
+                    Text("name")
+                        .font(.subtitle2)
                     Spacer()
                 }
                 .padding(.top, 16)
@@ -74,17 +75,17 @@ struct FollowingView: View {
                 Spacer()
                 ZStack{
                     Rectangle()
-                        .fill(Color.primary.opacity(0.1))
+                        .fill(Color.content.opacity(0.5))
                         .frame(height: 65)
                         .cornerRadius(15, corners: [.bottomLeft, .bottomRight])
                     HStack {
                         VStack(alignment: .leading){
                             Text("\(item)번째 게시글")
-                                .font(.system(size: 18))
-                                .foregroundStyle(.white)
+                                .font(.capsule)
+                                .foregroundStyle(.background)
                             Text("2024.09.25")
-                                .font(.system(size: 11))
-                                .foregroundStyle(.gray)
+                                .font(.body5)
+                                .foregroundStyle(.background)
                         }
                         Spacer()
                         VStack(alignment: .center) {
@@ -101,8 +102,8 @@ struct FollowingView: View {
                             }
                             
                             Text("4")
-                                .foregroundStyle(.white)
-                                .font(.system(size: 11))
+                                .foregroundStyle(.background)
+                                .font(.body4)
                         }
                          
                     }
