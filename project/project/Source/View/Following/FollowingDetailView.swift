@@ -47,9 +47,10 @@ struct FollowingDetailView: View {
                     .foregroundStyle(.white)
                 }
                 .padding()
-                
+            
             }
         }
+        .toolbar(.hidden,for: .tabBar)
     }
 }
 
