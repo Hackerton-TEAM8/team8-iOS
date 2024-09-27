@@ -20,8 +20,15 @@ struct MainTabView: View {
                     switch tab {
                     case .home:
                         HomeView()
+                    case .following:
+                        FollowingView()
+                    case .search:
+                        SearchView()
+                    case .upload:
+                        UploadView()
                     case .mypage:
                         MyPageView()
+                   
                     }
                 }
                 .tabItem {
