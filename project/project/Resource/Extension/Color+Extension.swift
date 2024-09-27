@@ -12,6 +12,17 @@ extension Color {
     // basic
     static let basicBlack = Color(hex: "000000")
     static let basicWhite = Color(hex: "FFFFFF")
+
+    static let background = Color(hex: "FFFFFF")
+    static let primary = Color(hex: "#FF512B")
+    static let secondary = Color(hex: "#C1FF16")
+    static let content = Color(hex: "#424242")
+    
+    // font
+    static let text1Black = Color(hex: "000000")
+    static let text2Gray = Color(hex: "424242")
+    static let text3Gray = Color(hex: "979797")
+    static let text4GrayDate = Color(hex: "D7D7D7")
     
 }
 
