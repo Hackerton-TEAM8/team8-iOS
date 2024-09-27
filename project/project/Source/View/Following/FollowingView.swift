@@ -52,6 +52,7 @@ struct FollowingView: View {
         }
         
     }
+    
     @ViewBuilder
     func feedView(item: Int) -> some View {
         ZStack {
