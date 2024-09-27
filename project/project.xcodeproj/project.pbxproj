@@ -32,6 +32,9 @@
 		6C8361802CA32B3400E39DE8 /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C83617F2CA32B3400E39DE8 /* AuthenticationViewModel.swift */; };
 		6C8361842CA32B8900E39DE8 /* SignInIntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8361832CA32B8900E39DE8 /* SignInIntroView.swift */; };
 		6C8361862CA32E2D00E39DE8 /* MainTabType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8361852CA32E2D00E39DE8 /* MainTabType.swift */; };
+		6C8361B32CA705CA00E39DE8 /* Inter-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6C8361B02CA705CA00E39DE8 /* Inter-SemiBold.otf */; };
+		6C8361B42CA705CA00E39DE8 /* Inter-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6C8361B12CA705CA00E39DE8 /* Inter-Bold.otf */; };
+		6C8361B52CA705CA00E39DE8 /* Inter-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 6C8361B22CA705CA00E39DE8 /* Inter-Regular.otf */; };
 		7BB39F0D2CA68B0600CB4984 /* FollowingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB39F0C2CA68B0600CB4984 /* FollowingView.swift */; };
 		7BB39F0F2CA68B2300CB4984 /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB39F0E2CA68B2300CB4984 /* SearchView.swift */; };
 		7BB39F112CA68B3900CB4984 /* UploadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB39F102CA68B3900CB4984 /* UploadView.swift */; };
@@ -61,6 +64,10 @@
 		6C83617F2CA32B3400E39DE8 /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
 		6C8361832CA32B8900E39DE8 /* SignInIntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInIntroView.swift; sourceTree = "<group>"; };
 		6C8361852CA32E2D00E39DE8 /* MainTabType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabType.swift; sourceTree = "<group>"; };
+		6C8361B02CA705CA00E39DE8 /* Inter-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-SemiBold.otf"; sourceTree = "<group>"; };
+		6C8361B12CA705CA00E39DE8 /* Inter-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Bold.otf"; sourceTree = "<group>"; };
+		6C8361B22CA705CA00E39DE8 /* Inter-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Regular.otf"; sourceTree = "<group>"; };
+		6C8361B62CA705F600E39DE8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		7BB39F0C2CA68B0600CB4984 /* FollowingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingView.swift; sourceTree = "<group>"; };
 		7BB39F0E2CA68B2300CB4984 /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		7BB39F102CA68B3900CB4984 /* UploadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadView.swift; sourceTree = "<group>"; };
@@ -101,6 +108,7 @@
 		6C8361302CA30C4E00E39DE8 /* project */ = {
 			isa = PBXGroup;
 			children = (
+				6C8361B62CA705F600E39DE8 /* Info.plist */,
 				6C8361412CA30D4B00E39DE8 /* Source */,
 				6C8361422CA30D5000E39DE8 /* Resource */,
 				6C8361312CA30C4E00E39DE8 /* projectApp.swift */,
@@ -173,6 +181,9 @@
 		6C8361462CA30DE300E39DE8 /* Font */ = {
 			isa = PBXGroup;
 			children = (
+				6C8361B12CA705CA00E39DE8 /* Inter-Bold.otf */,
+				6C8361B22CA705CA00E39DE8 /* Inter-Regular.otf */,
+				6C8361B02CA705CA00E39DE8 /* Inter-SemiBold.otf */,
 			);
 			path = Font;
 			sourceTree = "<group>";
@@ -374,7 +385,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C8361392CA30C4F00E39DE8 /* Preview Assets.xcassets in Resources */,
+				6C8361B52CA705CA00E39DE8 /* Inter-Regular.otf in Resources */,
+				6C8361B42CA705CA00E39DE8 /* Inter-Bold.otf in Resources */,
 				6C8361362CA30C4F00E39DE8 /* ImageAssets.xcassets in Resources */,
+				6C8361B32CA705CA00E39DE8 /* Inter-SemiBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,6 +558,7 @@
 				DEVELOPMENT_TEAM = 4YH4UGRTMH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = project/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -573,6 +588,7 @@
 				DEVELOPMENT_TEAM = 4YH4UGRTMH;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = project/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
