@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4BC438872CA6808B0075BD75 /* FollowingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC438862CA6808B0075BD75 /* FollowingView.swift */; };
 		4BC438892CA688240075BD75 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC438882CA688240075BD75 /* View+Extension.swift */; };
 		4BC4388B2CA69F190075BD75 /* FollowingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC4388A2CA69F190075BD75 /* FollowingDetailView.swift */; };
 		6C8361322CA30C4E00E39DE8 /* projectApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8361312CA30C4E00E39DE8 /* projectApp.swift */; };
@@ -42,7 +41,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4BC438862CA6808B0075BD75 /* FollowingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingView.swift; sourceTree = "<group>"; };
 		4BC438882CA688240075BD75 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		4BC4388A2CA69F190075BD75 /* FollowingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingDetailView.swift; sourceTree = "<group>"; };
 		6C83612E2CA30C4E00E39DE8 /* project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = project.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -88,15 +86,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4BC438852CA680770075BD75 /* Following */ = {
-			isa = PBXGroup;
-			children = (
-				4BC438862CA6808B0075BD75 /* FollowingView.swift */,
-				4BC4388A2CA69F190075BD75 /* FollowingDetailView.swift */,
-			);
-			path = Following;
-			sourceTree = "<group>";
-		};
 		6C8361252CA30C4E00E39DE8 = {
 			isa = PBXGroup;
 			children = (
@@ -166,7 +155,6 @@
 		6C8361442CA30D7200E39DE8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				4BC438852CA680770075BD75 /* Following */,
 				6C83616A2CA328D600E39DE8 /* Tab */,
 				6C83617C2CA32AEB00E39DE8 /* Auth */,
 				6C8361642CA328B600E39DE8 /* Home */,
@@ -303,6 +291,7 @@
 			isa = PBXGroup;
 			children = (
 				7BB39F0C2CA68B0600CB4984 /* FollowingView.swift */,
+				4BC4388A2CA69F190075BD75 /* FollowingDetailView.swift */,
 			);
 			path = Following;
 			sourceTree = "<group>";
