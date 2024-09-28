@@ -12,7 +12,19 @@ struct WritingView: View {
     @StateObject var uploadViewModel: UploadViewModel
     
     var body: some View {
-        Text("WritingView")
+        VStack {
+            if let image = uploadViewModel.mergedImage {
+//                Image(uiImage: image)
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .padding(.horizontal, 20)
+            } else {
+                ProgressView()
+            }
+            
+        }
     }
 }
 

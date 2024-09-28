@@ -11,6 +11,7 @@ import Foundation
 enum UploadDestination: Hashable, Identifiable {
     case gallery
     case camera
+    case canvas
     case writing
     
     var id: Int {
