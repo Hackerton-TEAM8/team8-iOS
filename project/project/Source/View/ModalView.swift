@@ -14,10 +14,17 @@ struct ModalView: View {
     
     var body: some View {
         ZStack {
-            Image("cloud")
-                .resizable()
-                .scaledToFit()
-            LottieView(jsonName:"cloud")
+            VStack{
+                Spacer()
+            
+                Image("cloud")
+                    .resizable()
+                    .scaledToFit()
+            }
+            .ignoresSafeArea()
+            LottieView(jsonName:"cloud_F")
+                .scaledToFill()
+                .frame(width: 300)
                 .ignoresSafeArea()
             VStack{
                 HStack {

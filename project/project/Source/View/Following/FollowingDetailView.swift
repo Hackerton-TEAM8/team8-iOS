@@ -43,7 +43,7 @@ struct FollowingDetailView: View {
                                     .resizable()
                                     .scaledToFit()
                                     .frame(width: 24)
-                                Text("2024.09.25 캠출 오픈")
+                                Text("2024.07.30 작성 · 2024.09.28 오픈")
                                     .font(.body4)
                                     .foregroundStyle(.white)
                             }
@@ -69,7 +69,7 @@ struct FollowingDetailView: View {
             }
         }
         .navigationBarBackButtonHidden(true)
-//        .background(Color.basicBlack.ignoresSafeArea())
+        .background(Color.basicBlack.ignoresSafeArea())
         .fullScreenCover(isPresented: $showModel) {
             ModalView(showModal: $showModel)
         }

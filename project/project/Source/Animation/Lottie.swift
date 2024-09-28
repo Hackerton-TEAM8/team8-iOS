@@ -31,7 +31,7 @@ struct LottieView: UIViewRepresentable {
         // AspectFit으로 적절한 크기의 에니매이션을 불러옵니다.
         animationView.contentMode = .scaleAspectFit
         // 애니메이션은 기본으로 Loop합니다.
-        animationView.loopMode = .playOnce
+        animationView.loopMode = .loop
         // 애니메이션을 재생합니다
         animationView.play()
         // 백그라운드에서 재생이 멈추는 오류를 잡습니다
