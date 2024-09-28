@@ -13,6 +13,7 @@ import SwiftUI
 
 protocol HomeServiceType {
     func getAllCapsules() async throws -> TimeCapsuleResponse
+    func createCapsule(timeCapsuleRequest: TimeCapsuleRequest, data: Data?)
 }
 
 class HomeService: HomeServiceType {
@@ -40,9 +41,33 @@ class HomeService: HomeServiceType {
             }
         }
     }
+    
+    func createCapsule(timeCapsuleRequest: TimeCapsuleRequest, data: Data?) {
+        
+        
+        provider.request(.createCapsule(timeCapsule: timeCapsuleRequest, data: data)) { result in
+            switch result {
+            case .success(let response):
+                // 성공 시 응답 데이터 출력
+                print("성공 : \(response)")
+                
+                
+            case .failure(let error):
+                Log.network("실패", error) // 기존의 로그를 사용
+                
+                
+            }
+            
+            
+        }
+    }
 }
 
 class StubHomeService: HomeServiceType {
+    func createCapsule(timeCapsuleRequest: TimeCapsuleRequest, data: Data?) {
+        
+    }
+    
     func getAllCapsules() async throws -> TimeCapsuleResponse {
         return .init()
     }

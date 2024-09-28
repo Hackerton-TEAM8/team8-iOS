@@ -15,6 +15,7 @@ struct projectApp: App {
     var body: some Scene {
         WindowGroup {
             AuthView(authViewModel: .init(container: container))
+                .environmentObject(container)
         }
     }
 }

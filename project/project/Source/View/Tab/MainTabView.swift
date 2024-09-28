@@ -21,7 +21,7 @@ struct MainTabView: View {
                     case .home:
                         HomeView()
                     case .following:
-                        FollowingView()
+                        FollowingView(viewModel: .init(container: container))
                     case .search:
                         SearchView()
                     case .upload:

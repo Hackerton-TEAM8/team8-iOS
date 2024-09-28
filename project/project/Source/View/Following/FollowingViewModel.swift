@@ -27,5 +27,10 @@ extension FollowingViewModel {
         } catch {
             print("getAllCapsules() error")
         }
+        
+    }
+    func createCapsule(timeCapsuleRequest: TimeCapsuleRequest, data: Data?) {
+        container.services.homeService.createCapsule(timeCapsuleRequest: timeCapsuleRequest, data: data)
+        
     }
 }

@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FollowingView: View {
-    
+    @StateObject var viewModel: FollowingViewModel
     @State private var isHeart: Bool = false
     
     var body: some View {
@@ -29,6 +29,9 @@ struct FollowingView: View {
                     }
                 }
             }
+        }.task{
+            await viewModel.getAllCapsules()
+            
         }
         
     }
@@ -42,7 +45,7 @@ struct FollowingView: View {
                 .font(.title)
             Spacer()
             Button {
-                
+                viewModel.createCapsule(timeCapsuleRequest: TimeCapsuleRequest(userId: 4, title: "df", content: "라라ㅏ", openDate: "2024-10-11"), data: nil)
             } label: {
                 Image(systemName: "person.badge.plus")
                     .resizable()
@@ -129,6 +132,6 @@ struct FollowingView: View {
 #Preview {
     NavigationStack {
         
-        FollowingView()
+        FollowingView(viewModel: .init(container: .stub))
     }
 }
