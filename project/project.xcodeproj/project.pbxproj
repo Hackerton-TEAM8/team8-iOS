@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4B38F8DB2CA863DF00BE589F /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B38F8DA2CA863DF00BE589F /* PhotoDetailView.swift */; };
+		4B38F8E02CA8689E00BE589F /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B38F8DF2CA8689E00BE589F /* FriendView.swift */; };
 		4B3D0FDC2CA8126A00257244 /* egg_Con.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B3D0FDB2CA8126A00257244 /* egg_Con.json */; };
 		4B3D0FDE2CA82FF000257244 /* String+Extensio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3D0FDD2CA82FF000257244 /* String+Extensio.swift */; };
 		4BA76B7F2CA7EFB50047B9DB /* TimeCapsuleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA76B7E2CA7EFB50047B9DB /* TimeCapsuleRequest.swift */; };
@@ -70,6 +71,7 @@
 
 /* Begin PBXFileReference section */
 		4B38F8DA2CA863DF00BE589F /* PhotoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailView.swift; sourceTree = "<group>"; };
+		4B38F8DF2CA8689E00BE589F /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
 		4B3D0FDB2CA8126A00257244 /* egg_Con.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = egg_Con.json; sourceTree = "<group>"; };
 		4B3D0FDD2CA82FF000257244 /* String+Extensio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensio.swift"; sourceTree = "<group>"; };
 		4BA76B7E2CA7EFB50047B9DB /* TimeCapsuleRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCapsuleRequest.swift; sourceTree = "<group>"; };
@@ -143,6 +145,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B38F8DC2CA8682300BE589F /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				4B38F8DF2CA8689E00BE589F /* FriendView.swift */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
 		4BB6456D2CA840820032BE00 /* Request */ = {
 			isa = PBXGroup;
 			children = (
@@ -232,6 +242,7 @@
 		6C8361442CA30D7200E39DE8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4B38F8DC2CA8682300BE589F /* Friend */,
 				6C83616A2CA328D600E39DE8 /* Tab */,
 				6C83617C2CA32AEB00E39DE8 /* Auth */,
 				6C8361642CA328B600E39DE8 /* Home */,
@@ -540,6 +551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B38F8E02CA8689E00BE589F /* FriendView.swift in Sources */,
 				6C9BD7972CA7E58F00E9A77A /* UIImage+Extension.swift in Sources */,
 				6C8361C02CA70C5000E39DE8 /* FeedAPI.swift in Sources */,
 				6C8361D02CA7136100E39DE8 /* HomeViewModel.swift in Sources */,
