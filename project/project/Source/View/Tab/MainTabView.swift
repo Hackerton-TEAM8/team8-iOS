@@ -14,34 +14,41 @@ struct MainTabView: View {
     @State private var selectedTab: MainTabType = .home
     
     var body: some View {
-        TabView(selection: $selectedTab) {
-            ForEach(MainTabType.allCases, id: \.self) { tab in
-                Group {
-                    switch tab {
-                    case .home:
-                        HomeView()
-                    case .feed:
-                        FollowingView()
-                    case .search:
-                        SearchView()
-                    case .upload:
-                        UploadView()
-                    case .mypage:
-                        MyPageView()
-                   
+        
+        ZStack {
+            Color.white
+                .edgesIgnoringSafeArea(.all)
+            
+            TabView(selection: $selectedTab) {
+                ForEach(MainTabType.allCases, id: \.self) { tab in
+                    Group {
+                        switch tab {
+                        case .home:
+                            HomeView()
+                        case .feed:
+                            FollowingView()
+                        case .search:
+                            SearchView()
+                        case .upload:
+                            UploadView()
+                        case .mypage:
+                            MyPageView()
+                            
+                        }
                     }
+                    .tabItem {
+                        Label(
+                            title: { Text(tab.title) },
+                            icon: { Image(getTabImage(tab: tab)) }
+                        )
+                        
+                    }
+                    .tag(tab)
                 }
-                .tabItem {
-                    Label(
-                        title: { Text(tab.title) },
-                        icon: { Image(getTabImage(tab: tab)) }
-                    )
-                    
-                }
-                .tag(tab)
             }
         }
         .accentColor(.black)
+
     }
     
     // 선택된 탭에 따라 다른 이미지 반환
