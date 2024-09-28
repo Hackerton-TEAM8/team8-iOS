@@ -19,9 +19,9 @@ struct WritingView: View {
     
     @State var title: String = ""
     @State var content: String = ""
-    @State var openDate: Date = .init()
+    @State var openDate = Date()
     
-
+    @State var isTapped: Bool = false
     
     var body: some View {
         ScrollView {
@@ -37,6 +37,18 @@ struct WritingView: View {
                     ProgressView()
                 }
                 contentView
+                
+                Button {
+                    // TODO: - 통신 코드 연결
+                    // TODO: 화면 종료
+                } label: {
+                    Text("저장하기")
+                        .frame(maxWidth: .infinity)
+                        .padding(.vertical, 16)
+                        .foregroundStyle(Color.basicWhite)
+                        .background(Color.primaryOrange)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
+                }
             }
             .padding(.horizontal, 20)
         }
@@ -89,6 +101,26 @@ struct WritingView: View {
             VStack(alignment: .leading) {
                 Text("공개날짜")
                     .font(.subtitle2)
+                
+                Text(DateFormatter.customFormatter.string(from: openDate))
+                    .font(.subtitle3)
+                    .foregroundStyle(isTapped ? Color.basicWhite : Color.basicBlack)
+                    .padding(.horizontal, 22)
+                    .padding(.vertical, 8)
+                    .background(isTapped ? Color.primaryOrange : Color.basicWhite)
+                    .clipShape(RoundedRectangle(cornerRadius: 999))
+                    .overlay {
+                        RoundedRectangle(cornerRadius: 999)
+                            .strokeBorder(isTapped ? .clear : Color.text2Gray)
+                    }
+                    .overlay(alignment: .top) {
+                        DatePicker("", selection: $openDate, displayedComponents: [.date])
+                            .labelsHidden()
+                            .datePickerStyle(CompactDatePickerStyle())
+                            .colorMultiply(.clear)
+                    }
+                    
+                
             }
             .frame(maxWidth: .infinity, alignment: .leading)
         }
