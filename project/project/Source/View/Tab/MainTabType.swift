@@ -9,7 +9,7 @@ import Foundation
 
 enum MainTabType: String, CaseIterable {    // CaseIterable : 뷰에서 ForEach로 뷰 그리기
     case home
-    case following
+    case feed
     case search
     case upload
     case mypage
@@ -17,15 +17,15 @@ enum MainTabType: String, CaseIterable {    // CaseIterable : 뷰에서 ForEach�
     var title: String {
         switch self {
         case .home:
-            return "home"
-        case .following:
-            return "following"
+            return "홈"
+        case .feed:
+            return "피드"
         case .search:
-            return "search"
+            return "검색"
         case .upload:
-            return "upload"
+            return "업로드"
         case .mypage:
-            return "mypage"
+            return "마이페이지"
         }
     }
 }

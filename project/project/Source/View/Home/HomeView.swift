@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct HomeView: View {
+    
+    @State private var isHeart: Bool = false
+    @State private var heartCnt: Int = 0
+    
     var body: some View {
         ScrollView {
             VStack {
                 timeCapsuleView
                 dashBoardView
+                    .padding(.bottom, 18)
+                likedContentsView
             }
             .padding(.leading, 20)
 
@@ -32,36 +38,40 @@ struct HomeView: View {
             }
                 
             Text("TIME CAPSULE")
-                .bold()
-                .font(Font.custom("SF Pro Text", size: 21))
+                .font(.title)
             Text("나만의 특별한 타임캡슐!")
-            
+                .font(.subtitle2)
             ScrollView(.horizontal) {
                 HStack {
                     ForEach(0..<10) { _ in
                         VStack {
                             
                             ZStack {
-                                Image("capsule")
+                                Image("capsule1")
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
-                                    .frame(width: 119, height: 119)
-                                    .clipShape(Circle())
+                                    .frame(width: 117, height: 150)
+//                                    .clipShape(Circle())
+                                
+//                                Image("capsule")
+//                                    .clips
                         
                                 Text("24살의 \n나에게")
                                     .multilineTextAlignment(.center)
                                     .foregroundColor(.white)
+                                    .font(.capsule)
                                     .padding()
                             }
                             
                             ZStack {
-                                RoundedRectangle(cornerRadius: 10.5)
-                                    .frame(width: 57, height: 21)
-                                    .foregroundColor(.blue) 
+                                RoundedRectangle(cornerRadius: 32)
+                                    .frame(width: 57, height: 25)
+                                    .foregroundColor(Color.primary)
                                 Text("D-1")
-
+                                    .font(.capsuleDday)
+                                    .foregroundStyle(Color.white)
                             }
-                            .offset(y: -15)
+                            .offset(y: -20)
 
                         }
                         
@@ -76,7 +86,75 @@ struct HomeView: View {
     var dashBoardView: some View {
         VStack(alignment: .leading) {
             Text("DASHBOARD")
+                .font(.title)
             Text("나의 콘텐츠들을 모아봤어요")
+                .font(.subtitle2)
+                .foregroundStyle(Color.text2Gray)
+            
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(0..<10) { _ in
+                        ZStack(alignment: .bottom) {
+                            Image("capsule")
+                                .resizable()
+                                .frame(width: 266, height: 348)
+                                .cornerRadius(35)
+                            
+                            
+                            HStack {
+                                VStack(alignment: .leading) {
+                                    Text("혼나는 아기강아지☁️")
+                                        .foregroundStyle(.white)
+                                        .font(.subtitle2)
+                                    Text("2024.09.25")
+                                        .foregroundStyle(Color.text4GrayDate)
+                                        .font(.body5)
+
+                                }
+                                Spacer()
+                                
+                                VStack {
+                                    Button {
+                                        isHeart.toggle()
+                                    } label: {
+                                        if isHeart {
+                                            Image(systemName: "heart.fill")
+                                                .foregroundStyle(.red)
+                                        } else {
+                                            Image(systemName: "heart")
+                                                .foregroundStyle(.white)
+                                        }
+                                    }
+
+                                    Text("12")
+                                        .foregroundStyle(.white)
+                                        .font(.subtitle4)
+                                }
+                                
+                                
+                            }
+                            .padding(13)
+                            .background(Color.black.opacity(0.4))
+
+                            
+                        }
+                        .frame(width: 266, height: 351)
+                        .cornerRadius(35)
+                        .padding(.trailing, 10)
+                        
+                    }
+                }
+            }
+            
+        }
+//        .background(.mint)
+    }
+    
+    var likedContentsView: some View {
+        VStack(alignment: .leading) {
+            Text("LIKED CONTENTS")
+                .font(.title)
+
             
             ScrollView(.horizontal) {
                 HStack {
@@ -91,19 +169,30 @@ struct HomeView: View {
                                 VStack(alignment: .leading) {
                                     Text("혼나는 아기강아지 🥺")
                                         .foregroundStyle(.white)
+                                        .font(.subtitle2)
                                     Text("2024.09.25")
-                                        .foregroundStyle(.white)
+                                        .foregroundStyle(Color.text4GrayDate)
+                                        .font(.body5)
 
                                 }
                                 Spacer()
                                 
                                 VStack {
-                                    Image(systemName: "heart")
-                                        .foregroundStyle(.white)
+                                    Button {
+                                        isHeart.toggle()
+                                    } label: {
+                                        if isHeart {
+                                            Image(systemName: "heart.fill")
+                                                .foregroundStyle(.red)
+                                        } else {
+                                            Image(systemName: "heart")
+                                                .foregroundStyle(.white)
+                                        }
+                                    }
 
                                     Text("12")
                                         .foregroundStyle(.white)
-
+                                        .font(.subtitle4)
                                 }
                                 
                                 
@@ -113,12 +202,14 @@ struct HomeView: View {
                             
                             
                         }
-                        .frame(width: 266, height: 348)
+                        .frame(width: 266, height: 351)
                         .cornerRadius(35)
+                        .padding(.trailing, 10)
+
                     }
                 }
             }
-            
+        
         }
 //        .background(.mint)
     }
