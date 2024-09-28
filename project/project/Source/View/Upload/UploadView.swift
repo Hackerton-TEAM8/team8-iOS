@@ -18,20 +18,32 @@ struct UploadView: View {
             VStack {
                 Spacer()
                 
-                HStack {
+                HStack(spacing: 80) {
                     
                     Button {
                         // 갤러리
                         uploadViewModel.send(action: .goToGallery)
                     } label: {
-                        Text("갤러리")
+                        VStack {
+                            Image(.gallery)
+                            Text("갤러리")
+                                .font(.body1)
+                                .foregroundStyle(Color.text1Black)
+                        }
                     }
                     
                     Button {
                         // 카메라
                         uploadViewModel.send(action: .goToCamera)
                     } label: {
-                        Text("사진 업로드")
+                        VStack {
+                            Image(.camera)
+                            Spacer()
+                                .frame(height: 10)
+                            Text("바로 촬영")
+                                .font(.body1)
+                                .foregroundStyle(Color.text1Black)
+                        }
                     }
                 }
                 .frame(maxWidth: .infinity)

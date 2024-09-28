@@ -9,6 +9,8 @@ import SwiftUI
 
 struct WritingView: View {
     
+    @Environment(\.dismiss) var dismiss
+    
     @StateObject var uploadViewModel: UploadViewModel
     
     @State private var keywordText = ""
@@ -25,14 +27,15 @@ struct WritingView: View {
     
     var body: some View {
         ScrollView {
-            VStack {
+            VStack(spacing: 15) {
                 if let image = uploadViewModel.mergedImage {
                     //                Image(uiImage: image)
                     Image(uiImage: image)
                         .resizable()
                         .scaledToFit()
                         .clipShape(RoundedRectangle(cornerRadius: 10))
-                        .padding(.horizontal, 20)
+                        .padding(.horizontal, 10)
+                        
                 } else {
                     ProgressView()
                 }
@@ -41,6 +44,7 @@ struct WritingView: View {
                 Button {
                     // TODO: - 통신 코드 연결
                     // TODO: 화면 종료
+                    dismiss()
                 } label: {
                     Text("저장하기")
                         .frame(maxWidth: .infinity)
@@ -73,6 +77,7 @@ struct WritingView: View {
                                   chips.append(inputText)
                                   inputText = ""
                                 }
+                            .font(.subtitle3)
                             .onChange(of: inputText) { _ in
                                   if useSpaces && inputText.hasSuffix(" ") {
                                     // add everything except the space
