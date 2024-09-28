@@ -5,8 +5,10 @@
 //  Created by Subeen on 9/28/24.
 //
 
+import SwiftUI
 import Foundation
 import AVFoundation
+import PhotosUI
 
 @Observable
 class UploadViewModel: ObservableObject {
@@ -14,20 +16,29 @@ class UploadViewModel: ObservableObject {
     enum Action {
         case goToGallery
         case goToCamera
+        case goToCanvas
         case goToWriting
     }
     
     var uploadDestination: UploadDestination?
     
     var isTaken = false // 사진 촬영 및 사진 선택 여부
-    var session = AVCaptureSession()
-    var alert = false   // 사진 권한 설정
-    var output = AVCapturePhotoOutput()  // 선택한 이미지
+    
+    let model: Camera
+    private let session: AVCaptureSession
+    let cameraPreview: AnyView
+    
+    
     
     private var container: DIContainer
     
+    var mergedImage: UIImage?
+    
     init(container: DIContainer) {
         self.container = container
+        model = Camera()
+        session = model.session
+        cameraPreview = AnyView(CameraPreviewView(session: session))
     }
 }
 
@@ -38,56 +49,37 @@ extension UploadViewModel {
             uploadDestination = .gallery
         case .goToCamera:
             uploadDestination = .camera
+        case .goToCanvas:
+            uploadDestination = .canvas
         case .goToWriting:
             uploadDestination = .writing
         }
     }
     
-    // 카메라 세팅
-    func check() {
-        switch AVCaptureDevice.authorizationStatus(for: .video) {
-        case .authorized:
-            setUp()
-            return
-            
-        case .notDetermined:
-            AVCaptureDevice.requestAccess(for: .video) { (status) in
-                if status {
-                    self.setUp()
-                }
-            }
-            
-        case .denied:
-            self.alert.toggle()
-            
-        default:
-            return
+    func configure() {
+            model.requestAndCheckPermissions()
         }
+    
+    func mergeImage(drawingImage: UIImage) -> UIImage? {
+        print("mergeImage")
+        var image =  model.selectedImage?.mergeWith(topImage: drawingImage)
+        self.mergedImage =  image
+        return image
     }
     
-    func setUp() {
-        // 카메라 세팅
-        
-        do {
-            // config 세팅
-            self.session.beginConfiguration()
-            
-            let devise = AVCaptureDevice.default(.builtInDualCamera,
-                                                 for: .video,
-                                                 position: .back)
-            
-//            let input = try AVCaptureDeviceInput(device: device!)
-            
-            // checking and adding to session
-//            if self.session.canAddInput(input) {
-//                self.session.addInput(input)
-//            }
-            
-            // output도 똑같이 설정
-            
-            
-        } catch {
-            print(error.localizedDescription)
-        }
+    func loadImageFromPickerItem(_ item: PhotosPickerItem) {
+            item.loadTransferable(type: Data.self) { result in
+                switch result {
+                case .success(let data):
+                    if let data = data, let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self.model.selectedImage = image
+                        }
+                    }
+                case .failure(let error):
+                    print("Error loading image: \(error)")
+                }
+            }
     }
+    
 }

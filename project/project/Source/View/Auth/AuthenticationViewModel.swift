@@ -22,4 +22,8 @@ class AuthenticationViewModel: ObservableObject {
     init(container: DIContainer) {
         self.container = container
     }
+    
+    func signIn() {
+        authentificationState = .authenticated
+    }
 }

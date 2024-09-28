@@ -14,9 +14,11 @@ import SwiftUI
 protocol HomeServiceType {
     func getAllCapsules() async throws -> [TimeCapsuleResponse]
     func createCapsule(timeCapsuleRequest: TimeCapsuleRequest, data: Data?)
+//    func getUserOpendCapsules() async throws -> TimeCapsuleResponse
 }
 
 class HomeService: HomeServiceType {
+    
     private let jsonDecoder = JSONDecoder()
     let provider = MoyaProvider<HomeTarget>(plugins: [MoyaLoggingPlugin()])
     
@@ -44,7 +46,6 @@ class HomeService: HomeServiceType {
     
     func createCapsule(timeCapsuleRequest: TimeCapsuleRequest, data: Data?) {
         
-        
         provider.request(.createCapsule(timeCapsule: timeCapsuleRequest, data: data)) { result in
             switch result {
             case .success(let response):
@@ -57,10 +58,14 @@ class HomeService: HomeServiceType {
                 
                 
             }
-            
-            
         }
     }
+    
+//    func getUserOpendCapsules() async throws -> TimeCapsuleResponse {
+//        return try await withCheckedContinuation  { continuation in
+//            provider.request(.getUserOpendCapsules(), completion: <#T##Completion##Completion##(_ result: Result<Response, MoyaError>) -> Void#>)
+//        }
+//    }
 }
 
 class StubHomeService: HomeServiceType {
