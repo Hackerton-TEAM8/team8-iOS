@@ -47,6 +47,8 @@ struct UploadView: View {
                 Text("gallery")
             case .writing:
                 WritingView(uploadViewModel: uploadViewModel)
+            case .canvas:
+                CanvasContentView(uploadViewModel: uploadViewModel)
             }
         }
     }
