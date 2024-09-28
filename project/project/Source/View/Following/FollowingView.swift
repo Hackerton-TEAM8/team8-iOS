@@ -10,7 +10,7 @@ import SwiftUI
 struct FollowingView: View {
     @StateObject var viewModel: FollowingViewModel
     @State private var isHeart: Bool = false
-    
+    @State private var heartcouter: Int = 4
     var body: some View {
         NavigationStack {
             VStack {
@@ -69,7 +69,7 @@ struct FollowingView: View {
     func feedView(item: TimeCapsuleResponse) -> some View {
         ZStack {
             
-            Image("capsule")
+            Image("\(item.imageUrl ?? "")")
                 .resizable()
                 .scaledToFit()
                 .cornerRadius(15)
@@ -113,7 +113,13 @@ struct FollowingView: View {
                         Spacer()
                         VStack(alignment: .center) {
                             Button{
-                                isHeart.toggle()
+                                self.isHeart.toggle()
+                                if self.isHeart {
+                                    self.heartcouter += 1
+                                } else {
+                                    self.heartcouter -= 1
+                                }
+                                
                             } label: {
                                 if isHeart{
                                     Image(systemName: "heart.fill")
@@ -124,7 +130,7 @@ struct FollowingView: View {
                                 }
                             }
                             
-                            Text("4")
+                            Text("\(heartcouter)")
                                 .foregroundStyle(.background)
                                 .font(.body4)
                         }

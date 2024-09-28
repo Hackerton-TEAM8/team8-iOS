@@ -12,6 +12,7 @@ struct FollowingDetailView: View {
     var item: TimeCapsuleResponse
     @State private var showModel = true
     @State private var isheart: Bool = false
+    @State private var heartConter: Int = 4
     var body: some View {
         
         VStack(alignment: .leading){
@@ -26,12 +27,12 @@ struct FollowingDetailView: View {
                 Spacer()
             }
             Spacer()
-            feedView(imageString: "testPhoto")
+            feedView(imageString: "\(item.imageUrl ?? "")")
             VStack {
                 
                 HStack {
                     VStack(alignment: .leading) {
-                       
+                        
                         
                         
                         HStack{
@@ -39,14 +40,20 @@ struct FollowingDetailView: View {
                                 .resizable()
                                 .scaledToFit()
                                 .frame(width: 24)
-                            Text("2024.07.30 작성 · 2024.09.28 오픈")
-                                .font(.body4)
-                                .foregroundStyle(.white)
+                            if let formattedCreateDate = item.createDate.formatSSSSSSToDate(), let formattedUnlockDateDate = item.unlockDate.formatSSToDate() {
+                                Text("\(formattedCreateDate) 작성 · \(formattedUnlockDateDate) 오픈")
+                                    .font(.body5)
+                                    .foregroundStyle(.background)
+                            } else {
+                                Text("날짜 형식이 맞지 않습니다.") // 또는 기본값을 제공할 수 있습니다.
+                                    .font(.body5)
+                                    .foregroundStyle(.background)
+                            }
                         }
                         .padding(EdgeInsets(top: 3, leading: 4, bottom: 3, trailing: 11))
                         .background(Color.primaryOrange.opacity(0.8))
                         .cornerRadius(30)
-                        Text("타이틀")
+                        Text("\(item.text)")
                             .font(.title)
                             .foregroundStyle(Color.basicBlack)
                     }
@@ -54,6 +61,11 @@ struct FollowingDetailView: View {
                     VStack {
                         Button {
                             self.isheart.toggle()
+                            if self.isheart {
+                                self.heartConter += 1
+                            } else {
+                                self.heartConter -= 1
+                            }
                         } label: {
                             if isheart {
                                 Image(systemName: "heart.fill")
@@ -69,7 +81,7 @@ struct FollowingDetailView: View {
                             }
                         }
                         
-                        Text("4")
+                        Text("\(heartConter)")
                     }
                     .foregroundStyle(Color.basicBlack)
                 }
