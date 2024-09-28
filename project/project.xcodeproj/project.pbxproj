@@ -441,7 +441,6 @@
 		6C8361C72CA70D7E00E39DE8 /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				4BA76B7E2CA7EFB50047B9DB /* TimeCapsuleRequest.swift */,
 				6C8361C82CA70D8700E39DE8 /* TimeCapsuleResponse.swift */,
 			);
 			path = Response;
