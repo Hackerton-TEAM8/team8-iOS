@@ -14,7 +14,11 @@ struct CameraView: View {
     
     var body: some View {
         ZStack {
-            Color.basicBlack.ignoresSafeArea(.all)
+            uploadViewModel.cameraPreview.ignoresSafeArea()
+                            .onAppear {
+                                uploadViewModel.configure()
+                            }
+               
             
             VStack {
                 Spacer()
@@ -22,6 +26,7 @@ struct CameraView: View {
                 cameraButton
             }
         }
+        
     }
     
     @ViewBuilder
