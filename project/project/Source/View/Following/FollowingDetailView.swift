@@ -48,7 +48,7 @@ struct FollowingDetailView: View {
                                     .foregroundStyle(.white)
                             }
                             .padding(EdgeInsets(top: 3, leading: 4, bottom: 3, trailing: 11))
-                            .background(Color.primary.opacity(0.8))
+                            .background(Color.primaryOrange.opacity(0.8))
                             .cornerRadius(30)
                             
                             
