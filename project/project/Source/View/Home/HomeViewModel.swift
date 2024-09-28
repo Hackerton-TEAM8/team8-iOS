@@ -11,7 +11,7 @@ import SwiftUI
 @Observable
 class HomeViewModel: ObservableObject {
     // 응답값 프로퍼티
-    var allTimeCapsule: TimeCapsuleResponse?
+    var allTimeCapsule: [TimeCapsuleResponse]?
     
     // DIContainer를 통해 API 통신 요청 함수 실행 (Service 접근)
     private var container: DIContainer
