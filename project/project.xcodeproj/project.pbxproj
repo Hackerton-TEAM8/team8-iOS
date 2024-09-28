@@ -61,7 +61,7 @@
 		6C8361CB2CA711CD00E39DE8 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8361CA2CA711CD00E39DE8 /* HomeService.swift */; };
 		6C8361CE2CA711E700E39DE8 /* Services.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8361CD2CA711E700E39DE8 /* Services.swift */; };
 		6C8361D02CA7136100E39DE8 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8361CF2CA7136100E39DE8 /* HomeViewModel.swift */; };
-		6C8361D22CA71F6F00E39DE8 /* CanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8361D12CA71F6F00E39DE8 /* CanvasView.swift */; };
+		6C8361D22CA71F6F00E39DE8 /* CanvasContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C8361D12CA71F6F00E39DE8 /* CanvasContentView.swift */; };
 		6C9BD7972CA7E58F00E9A77A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9BD7962CA7E58F00E9A77A /* UIImage+Extension.swift */; };
 		6C9BD7B92CA7EBA100E9A77A /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9BD7B82CA7EBA100E9A77A /* CameraView.swift */; };
 		6C9BD7BB2CA7ED6900E9A77A /* UploadViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C9BD7BA2CA7ED6900E9A77A /* UploadViewModel.swift */; };
@@ -128,7 +128,7 @@
 		6C8361CA2CA711CD00E39DE8 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		6C8361CD2CA711E700E39DE8 /* Services.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Services.swift; sourceTree = "<group>"; };
 		6C8361CF2CA7136100E39DE8 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
-		6C8361D12CA71F6F00E39DE8 /* CanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasView.swift; sourceTree = "<group>"; };
+		6C8361D12CA71F6F00E39DE8 /* CanvasContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CanvasContentView.swift; sourceTree = "<group>"; };
 		6C9BD7962CA7E58F00E9A77A /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		6C9BD7B82CA7EBA100E9A77A /* CameraView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		6C9BD7BA2CA7ED6900E9A77A /* UploadViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadViewModel.swift; sourceTree = "<group>"; };
@@ -485,7 +485,7 @@
 				6C18BEBC2CA810C1004C7DEE /* Camera */,
 				7BB39F102CA68B3900CB4984 /* UploadView.swift */,
 				6C18BEB92CA80116004C7DEE /* WritingView.swift */,
-				6C8361D12CA71F6F00E39DE8 /* CanvasView.swift */,
+				6C8361D12CA71F6F00E39DE8 /* CanvasContentView.swift */,
 				6C9BD7BA2CA7ED6900E9A77A /* UploadViewModel.swift */,
 				6C18BEB72CA7FACF004C7DEE /* UploadDestination.swift */,
 			);
@@ -596,7 +596,7 @@
 				7B1ED6072CA8659400A61A68 /* UIImageView+.swift in Sources */,
 				6C8361322CA30C4E00E39DE8 /* projectApp.swift in Sources */,
 				7BB39F112CA68B3900CB4984 /* UploadView.swift in Sources */,
-				6C8361D22CA71F6F00E39DE8 /* CanvasView.swift in Sources */,
+				6C8361D22CA71F6F00E39DE8 /* CanvasContentView.swift in Sources */,
 				6C8361802CA32B3400E39DE8 /* AuthenticationViewModel.swift in Sources */,
 				6C8361792CA329A000E39DE8 /* DIContainer.swift in Sources */,
 				4B38F8DB2CA863DF00BE589F /* PhotoDetailView.swift in Sources */,
@@ -772,6 +772,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = project/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 사용 권한";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "갤러리 사용 권한";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -803,6 +804,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = project/Info.plist;
 				INFOPLIST_KEY_NSCameraUsageDescription = "카메라 사용 권한";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "갤러리 사용 권한";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

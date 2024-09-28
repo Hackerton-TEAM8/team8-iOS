@@ -15,9 +15,9 @@ struct CameraView: View {
     var body: some View {
         ZStack {
             uploadViewModel.cameraPreview.ignoresSafeArea()
-                            .onAppear {
-                                uploadViewModel.configure()
-                            }
+                .onAppear {
+                    uploadViewModel.configure()
+                }
                
             
             VStack {
@@ -33,10 +33,12 @@ struct CameraView: View {
     var cameraButton: some View {
         if uploadViewModel.isTaken {
 //            let _ =
+            
         } else {
             Button {
                 uploadViewModel.isTaken = true
-                uploadViewModel.send(action: .goToWriting)
+                uploadViewModel.model.capturePhoto()
+                uploadViewModel.send(action: .goToCanvas)
             } label: {
                 Circle()
                     .frame(width: 60, height: 60)
