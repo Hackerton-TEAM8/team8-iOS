@@ -11,6 +11,8 @@ struct HomeView: View {
     @StateObject var viewModel: HomeViewModel
     @State private var isHeart: Bool = false
     @State private var heartCnt: Int = 0
+    @State private var showModel = true
+
     
     var body: some View {
         ScrollView {
@@ -22,13 +24,16 @@ struct HomeView: View {
             }
             .padding(.leading, 20)
 
+        }.task {
+            await viewModel.getAllCapsules()
         }
-//        .background(.yellow)
+        .fullScreenCover(isPresented: $showModel) {
+            ModalView(showModal: $showModel)
+        }
+
         .frame(maxWidth: .infinity)
     }
-//        .task {
-////        awit viewModel.
-//    }
+    
     
     var timeCapsuleView: some View {
         VStack(alignment: .leading) {
@@ -46,7 +51,7 @@ struct HomeView: View {
                 .font(.subtitle2)
             ScrollView(.horizontal) {
                 HStack {
-                    ForEach(0..<10) { _ in
+                    ForEach(viewModel.closedCapsule ?? [], id: \.timeCapsuleId) { capsule in
                         VStack {
                             
                             ZStack {
@@ -54,10 +59,29 @@ struct HomeView: View {
                                     .resizable()
                                     .aspectRatio(contentMode: .fill)
                                     .frame(width: 117, height: 150)
-//                                    .clipShape(Circle())
+                                
+                                AsyncImage(url: URL(string: capsule.imageUrl ?? "" )) { phase in
+                                    switch phase {
+                                    case .empty:
+                                        ProgressView()
+                                    case .success(let image):
+                                        image
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .frame(width: 117, height: 150)
+                                            .cornerRadius(10)
+                                            .clipped()
+                                            
+                                    case .failure(let error):
+                                        Text("이미지 로드 실패: \(error.localizedDescription)")
+                                    @unknown default:
+                                        EmptyView()
+                                    }
+                                }
+                                
                                 
                         
-                                Text("24살의 \n나에게")
+                                Text(capsule.text)
                                     .multilineTextAlignment(.center)
                                     .foregroundColor(.white)
                                     .font(.capsule)
@@ -68,7 +92,7 @@ struct HomeView: View {
                                 RoundedRectangle(cornerRadius: 32)
                                     .frame(width: 57, height: 25)
                                     .foregroundColor(Color.primaryOrange)
-                                Text("D-1")
+                                Text("D-\(formatDateString(capsule.unlockDate) ?? "Day")")
                                     .font(.capsuleDday)
                                     .foregroundStyle(Color.white)
                             }
@@ -94,20 +118,33 @@ struct HomeView: View {
             
             ScrollView(.horizontal) {
                 HStack {
-                    ForEach(0..<10) { _ in
+                    ForEach(viewModel.openedCapsule ?? [], id: \.timeCapsuleId) { capsule in
                         ZStack(alignment: .bottom) {
-                            Image("capsule")
-                                .resizable()
-                                .frame(width: 266, height: 348)
-                                .cornerRadius(35)
-                            
+                            AsyncImage(url: URL(string: capsule.imageUrl ?? "" )) { phase in
+                                switch phase {
+                                case .empty:
+                                    ProgressView() 
+                                case .success(let image):
+                                    image
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .frame(width: 266, height: 348)
+                                        .cornerRadius(10)
+                                        .clipped()
+                                case .failure(let error):
+                                    Text("이미지 로드 실패: \(error.localizedDescription)")
+                                @unknown default:
+                                    EmptyView()
+                                }
+                            }
+
                             
                             HStack {
                                 VStack(alignment: .leading) {
-                                    Text("혼나는 아기강아지☁️")
+                                    Text(capsule.text)
                                         .foregroundStyle(.white)
                                         .font(.subtitle2)
-                                    Text("2024.09.25")
+                                    Text(formatDateString(capsule.createDate) ?? "")
                                         .foregroundStyle(Color.text4GrayDate)
                                         .font(.body5)
 
@@ -215,10 +252,28 @@ struct HomeView: View {
 //        .background(.mint)
     }
     
+    func formatDateString(_ dateString: String) -> String? {
+        // 입력된 날짜 문자열을 Date 객체로 변환하기 위한 DateFormatter 설정
+        let inputFormatter = DateFormatter()
+        inputFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSSSS" // 입력 형식
+
+        // 변환된 Date 객체
+        guard let date = inputFormatter.date(from: dateString) else {
+            return nil // 변환 실패 시 nil 반환
+        }
+
+        // 출력 형식을 위한 DateFormatter 설정
+        let outputFormatter = DateFormatter()
+        outputFormatter.dateFormat = "yyyy.MM.dd" // 원하는 형식
+
+        // Date 객체를 문자열로 변환 후 반환
+        return outputFormatter.string(from: date)
+    }
     
 }
 
 #Preview {
     HomeView(viewModel: .init(container: .stub))
+    
 }
 

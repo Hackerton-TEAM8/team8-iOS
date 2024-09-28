@@ -14,7 +14,8 @@ import SwiftUI
 protocol HomeServiceType {
     func getAllCapsules() async throws -> [TimeCapsuleResponse]
     func createCapsule(timeCapsuleRequest: TimeCapsuleRequest, data: Data?)
-//    func getUserOpendCapsules() async throws -> TimeCapsuleResponse
+    func getUserOpendCapsules() async throws -> [TimeCapsuleResponse]
+    func getUserClosedCapsules() async throws -> [TimeCapsuleResponse]
 }
 
 class HomeService: HomeServiceType {
@@ -61,14 +62,54 @@ class HomeService: HomeServiceType {
         }
     }
     
-//    func getUserOpendCapsules() async throws -> TimeCapsuleResponse {
-//        return try await withCheckedContinuation  { continuation in
-//            provider.request(.getUserOpendCapsules(), completion: <#T##Completion##Completion##(_ result: Result<Response, MoyaError>) -> Void#>)
-//        }
-//    }
+    func getUserOpendCapsules() async throws -> [TimeCapsuleResponse] {
+        return try await withCheckedContinuation  { continuation in
+            provider.request(.getUserOpendCapsules) { result in
+                switch result {
+                case .success(let response):
+                    do {
+                        let decodedResponse = try JSONDecoder().decode([TimeCapsuleResponse].self, from: response.data)
+                        continuation.resume(returning: decodedResponse)
+                        print("🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈🌈")
+                    } catch {
+                        Log.network("모든 타임캡슐 Decode 실패", error)
+                    }
+                case .failure(let error):
+                    Log.network("모든 타임캡슐 조회 네트워크 오류", error)
+                }
+            }
+        }
+    }
+    
+    func getUserClosedCapsules() async throws -> [TimeCapsuleResponse] {
+        return try await withCheckedContinuation  { continuation in
+            provider.request(.getUserClosedCapsules) { result in
+                switch result {
+                case .success(let response):
+                    do {
+                        let decodedResponse = try JSONDecoder().decode([TimeCapsuleResponse].self, from: response.data)
+                        continuation.resume(returning: decodedResponse)
+                        print("👍👍👍👍👍👍👍👍👍")
+                    } catch {
+                        Log.network("모든 타임캡슐 Decode 실패", error)
+                    }
+                case .failure(let error):
+                    Log.network("모든 타임캡슐 조회 네트워크 오류", error)
+                }
+            }
+        }
+    }
 }
 
 class StubHomeService: HomeServiceType {
+    func getUserClosedCapsules() async throws -> [TimeCapsuleResponse] {
+        return .init([.stub01])
+    }
+    
+    func getUserOpendCapsules() async throws -> [TimeCapsuleResponse] {
+        return .init([.stub01])
+    }
+    
     func createCapsule(timeCapsuleRequest: TimeCapsuleRequest, data: Data?) {
         
     }

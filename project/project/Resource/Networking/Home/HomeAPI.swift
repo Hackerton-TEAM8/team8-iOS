@@ -15,6 +15,8 @@ public enum HomeAPI {
     case createCapsule              // 타임캡슐 생성
     case getCapsule(Int)                 // 특정 타임캡슐 조회
     case updateCapsule(Int)         // 타임캡슐 수정
+    case getUserOpendCapsules
+    case getUserClosedCapsules
     
     public var apiDesc: String {
         switch self {
@@ -32,6 +34,13 @@ public enum HomeAPI {
             
         case .updateCapsule(let id):
             return "/api/v1/timecapsule/\(id)"
+            
+        case .getUserOpendCapsules:
+            return "/api/v1/timecapsule/opened/2c918082923a75ec01923a824a7e0001"
+            
+        case .getUserClosedCapsules:
+            return "/api/v1/timecapsule/closed/2c918082923a75ec01923a824a7e0001"
         }
     }
+    
 }
