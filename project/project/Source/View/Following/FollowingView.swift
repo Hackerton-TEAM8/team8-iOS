@@ -45,7 +45,7 @@ struct FollowingView: View {
                 .font(.title)
             Spacer()
             Button {
-                viewModel.createCapsule(timeCapsuleRequest: TimeCapsuleRequest(userId: 4, title: "df", content: "라라ㅏ", openDate: "2024-10-11"), data: nil)
+                viewModel.createCapsule(timeCapsuleRequest: TimeCapsuleRequest(userId: 4,  text: "ㅁㄴㅇㄹㅁㄴㅇㄹㅁㅇㄴㅏ", unlockDate: "2024-02-25T15:35:27", isActive: false), data: nil)
             } label: {
                 Image(systemName: "person.badge.plus")
                     .resizable()

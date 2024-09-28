@@ -9,7 +9,8 @@ import Foundation
 
 struct TimeCapsuleRequest: Codable {
     let userId: Int
-    let title: String
-    let content: String
-    let openDate: String
+    let text: String
+    let unlockDate: String
+    let isActive: Bool
+    
 }
