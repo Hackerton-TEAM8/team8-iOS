@@ -45,16 +45,22 @@ struct FollowingView: View {
                 .foregroundStyle(Color.content)
                 .font(.title)
             Spacer()
-            
-            Button {
-                viewModel.createCapsule(timeCapsuleRequest: TimeCapsuleRequest(userId: 4, title: "타이틀",  text: "내용", unlockDate: "2024-02-25T00:00:00.000000", isActive: false), data: nil)
-            } label: {
+            NavigationLink(destination: FriendView()){
                 Image(systemName: "person.badge.plus")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 24)
                     .foregroundStyle(Color.content)
             }
+            //            Button {
+            //                viewModel.createCapsule(timeCapsuleRequest: TimeCapsuleRequest(userId: 4, title: "타이틀",  text: "내용", unlockDate: "2024-02-25T00:00:00.000000", isActive: false), data: nil)
+            //            } label: {
+            //                Image(systemName: "person.badge.plus")
+            //                    .resizable()
+            //                    .scaledToFit()
+            //                    .frame(width: 24)
+            //                    .foregroundStyle(Color.content)
+            //                }
         }
         
     }
@@ -67,7 +73,7 @@ struct FollowingView: View {
                 .resizable()
                 .scaledToFit()
                 .cornerRadius(15)
-                
+            
             VStack {
                 HStack {
                     Image(systemName: "person.crop.circle")
