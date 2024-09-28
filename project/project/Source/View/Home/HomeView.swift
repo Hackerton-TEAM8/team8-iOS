@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
-    
+    @StateObject var viewModel: HomeViewModel
     @State private var isHeart: Bool = false
     @State private var heartCnt: Int = 0
     
@@ -53,8 +53,6 @@ struct HomeView: View {
                                     .frame(width: 117, height: 150)
 //                                    .clipShape(Circle())
                                 
-//                                Image("capsule")
-//                                    .clips
                         
                                 Text("24살의 \n나에게")
                                     .multilineTextAlignment(.center)
@@ -66,7 +64,7 @@ struct HomeView: View {
                             ZStack {
                                 RoundedRectangle(cornerRadius: 32)
                                     .frame(width: 57, height: 25)
-                                    .foregroundColor(Color.primary)
+                                    .foregroundColor(Color.primaryOrange)
                                 Text("D-1")
                                     .font(.capsuleDday)
                                     .foregroundStyle(Color.white)
@@ -218,6 +216,6 @@ struct HomeView: View {
 }
 
 #Preview {
-    HomeView()
+    HomeView(viewModel: .init(container: .stub))
 }
 
