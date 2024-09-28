@@ -20,6 +20,7 @@ extension Font {
     static let subtitle1: Font = .custom("Inter-Regular", size: 16)
     static let subtitle2: Font = .custom("Inter-Regular", size: 14)
     static let subtitle3: Font = .custom("Inter-Regular", size: 13)
+    static let subtitle4: Font = .custom("Inter-Regular", size: 11)
     
     // body (regular)
     static let body1: Font = .custom("Inter-Regular", size: 15)
@@ -29,6 +30,9 @@ extension Font {
     static let body5: Font = .custom("Inter-Regular", size: 11)
     
     static let navigation: Font = .custom("Inter-Regular", size: 11)
+    
+    // medium
+    static let capsuleDday: Font = .custom("Inter-Medium", size: 13)
     
 }
 

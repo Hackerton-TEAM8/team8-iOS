@@ -16,7 +16,8 @@ struct AuthView: View {
         VStack {
             switch authViewModel.authentificationState {
             case .unauthenticated:
-                SignInIntroView()
+//                SignInIntroView()
+                OnboardingView()
                     .environmentObject(authViewModel)
             case .authenticated:
                 MainTabView()
