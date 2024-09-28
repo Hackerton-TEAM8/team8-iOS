@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import PhotosUI
 
 struct UploadView: View {
     
@@ -19,6 +20,8 @@ struct UploadView: View {
                 Spacer()
                 
                 HStack(spacing: 80) {
+                    
+                    
                     
                     Button {
                         // 갤러리
@@ -55,8 +58,7 @@ struct UploadView: View {
             switch $0 {
             case .camera:
                 CameraView(uploadViewModel: uploadViewModel)
-            case .gallery:
-                Text("gallery")
+                
             case .writing:
                 WritingView(uploadViewModel: uploadViewModel)
             case .canvas:

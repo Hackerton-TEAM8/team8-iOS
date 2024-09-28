@@ -8,6 +8,7 @@
 import SwiftUI
 import Foundation
 import AVFoundation
+import PhotosUI
 
 @Observable
 class UploadViewModel: ObservableObject {
@@ -26,6 +27,8 @@ class UploadViewModel: ObservableObject {
     let model: Camera
     private let session: AVCaptureSession
     let cameraPreview: AnyView
+    
+    
     
     private var container: DIContainer
     
@@ -63,4 +66,20 @@ extension UploadViewModel {
         self.mergedImage =  image
         return image
     }
+    
+    func loadImageFromPickerItem(_ item: PhotosPickerItem) {
+            item.loadTransferable(type: Data.self) { result in
+                switch result {
+                case .success(let data):
+                    if let data = data, let image = UIImage(data: data) {
+                        DispatchQueue.main.async {
+                            self.model.selectedImage = image
+                        }
+                    }
+                case .failure(let error):
+                    print("Error loading image: \(error)")
+                }
+            }
+    }
+    
 }
