@@ -11,7 +11,7 @@ import Moya
 enum HomeTarget {
     case getAllCapsules             // 타임캡슐 전체 조회
     case deleteCaptsule(id: Int)             // 타임캡슐 삭제
-    case createCapsule(timeCapsule: TimeCapsuleResponse, data: Data?)         // 타임캡슐 생성
+    case createCapsule(timeCapsule: TimeCapsuleRequest, data: Data?)         // 타임캡슐 생성
     case getCapsule(id: Int)                 // 특정 타임캡슐 조회
     case updateCapsule(id: Int)         // 타임캡슐 수정
 }
@@ -56,11 +56,27 @@ extension HomeTarget: BaseTargetType {
         case .getAllCapsules:
             return .requestPlain
             
-        // TODO: - 요청 방식 수정하기
+            // TODO: - 요청 방식 수정하기
         case .deleteCaptsule(let id):
             return .requestPlain
         case .createCapsule(let timeCapsule, let data):
-            return .requestPlain
+            // 1. JSON 데이터를 멀티파트 데이터로 변환
+            let jsonData = try! JSONEncoder().encode(timeCapsule)
+            var multipartData = [MultipartFormData]()
+            
+            // JSON 데이터를 "json" 필드로 추가
+            multipartData.append(MultipartFormData(provider: .data(jsonData),
+                                                   name: "json",
+                                                   mimeType: "application/json"))
+            
+            // 2. 파일이 있으면 파일 데이터를 추가
+            if let fileData = data {
+                multipartData.append(MultipartFormData(provider: .data(fileData),
+                                                       name: "file",
+                                                       fileName: "file.jpg",
+                                                       mimeType: "image/jpeg"))
+            }
+            return .uploadMultipart(multipartData)
         case .getCapsule(let id):
             return .requestPlain
         case .updateCapsule(let id):
@@ -76,7 +92,7 @@ extension HomeTarget: BaseTargetType {
         case .deleteCaptsule(let id):
             return [:]
         case .createCapsule(let timeCapsule, let data):
-            return [:]
+            return ["Content-Type" : "multipart/form-data"]
         case .getCapsule(let id):
             return [:]
         case .updateCapsule(let id):
