@@ -14,6 +14,8 @@ enum HomeTarget {
     case createCapsule(timeCapsule: TimeCapsuleRequest, data: Data?)         // 타임캡슐 생성
     case getCapsule(id: Int)                 // 특정 타임캡슐 조회
     case updateCapsule(id: Int)         // 타임캡슐 수정
+    case getUserOpendCapsules
+    case getUserClosedCapsules
 }
 
 extension HomeTarget: BaseTargetType {
@@ -33,6 +35,12 @@ extension HomeTarget: BaseTargetType {
             
         case .updateCapsule(let id):
             return HomeAPI.updateCapsule(id).apiDesc
+            
+        case .getUserOpendCapsules:
+            return HomeAPI.getUserOpendCapsules.apiDesc
+            
+        case .getUserClosedCapsules:
+            return HomeAPI.getUserClosedCapsules.apiDesc
         }
     }
     
@@ -48,6 +56,10 @@ extension HomeTarget: BaseTargetType {
             return .get
         case .updateCapsule:
             return .put
+        case .getUserOpendCapsules:
+            return .get
+        case .getUserClosedCapsules:
+            return .get
         }
     }
     
@@ -81,6 +93,11 @@ extension HomeTarget: BaseTargetType {
             return .requestPlain
         case .updateCapsule(let id):
             return .requestPlain
+            
+        case .getUserOpendCapsules:
+            return .requestPlain
+        case .getUserClosedCapsules:
+            return .requestPlain
         }
     }
     
@@ -96,6 +113,10 @@ extension HomeTarget: BaseTargetType {
         case .getCapsule(let id):
             return [:]
         case .updateCapsule(let id):
+            return [:]
+        case .getUserOpendCapsules:
+            return [:]
+        case .getUserClosedCapsules:
             return [:]
         }
     }
