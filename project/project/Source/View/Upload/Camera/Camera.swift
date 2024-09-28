@@ -7,11 +7,14 @@
 
 import Foundation
 import AVFoundation
+import UIKit
 
-class Camera {
+@Observable
+class Camera: NSObject {
     var session = AVCaptureSession()
     var videoDeviceInput: AVCaptureDeviceInput!
     let output = AVCapturePhotoOutput()
+    var selectedImage: UIImage?
     
     // 카메라 셋업 과정을 담당하는 함수, positio
     func setUpCamera() {
@@ -57,4 +60,42 @@ class Camera {
             print("Permession declined")
         }
     }
+    
+    // ✅ 추가
+    func capturePhoto() {
+        // 사진 옵션 세팅
+        let photoSettings = AVCapturePhotoSettings()
+        
+        self.output.capturePhoto(with: photoSettings, delegate: self)
+        print("[Camera]: Photo's taken")
+    }
+
+    // ✅ 추가
+      func savePhoto(_ imageData: Data) {
+          guard let image = UIImage(data: imageData) else { return }
+    //      UIImageWriteToSavedPhotosAlbum(image, nil, nil, nil)
+          
+          selectedImage = image
+          // 사진 저장하기
+          print("[Camera]: Photo's saved")
+      }
+    }
+
+// ✅ extension 추가
+extension Camera: AVCapturePhotoCaptureDelegate {
+  func photoOutput(_ output: AVCapturePhotoOutput, willBeginCaptureFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
+  }
+  
+  func photoOutput(_ output: AVCapturePhotoOutput, willCapturePhotoFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
+  }
+  
+  func photoOutput(_ output: AVCapturePhotoOutput, didCapturePhotoFor resolvedSettings: AVCaptureResolvedPhotoSettings) {
+  }
+  
+  func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
+      guard let imageData = photo.fileDataRepresentation() else { return }
+      self.savePhoto(imageData)
+      
+      print("[CameraModel]: Capture routine's done")
+  }
 }
