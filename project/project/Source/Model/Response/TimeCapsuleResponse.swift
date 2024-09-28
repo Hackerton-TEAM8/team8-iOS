@@ -8,5 +8,11 @@
 import Foundation
 
 struct TimeCapsuleResponse: Codable {
-   
+    let timeCapsuleId: Int
+    let userId: String
+    let imageUrl: String
+    let text: String
+    let createDate: String
+    let isActive: Bool
+    let unlockDate: String
 }
