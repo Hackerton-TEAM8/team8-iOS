@@ -24,13 +24,13 @@ struct MainTabView: View {
                     Group {
                         switch tab {
                         case .home:
-                            HomeView()
+                            HomeView(viewModel: .init(container: container))
                         case .feed:
-                            FollowingView()
+                            FollowingView(viewModel: .init(container: container))
                         case .search:
                             SearchView()
                         case .upload:
-                            UploadView()
+                            UploadView(uploadViewModel: .init(container: container))
                         case .mypage:
                             MyPageView()
                             
