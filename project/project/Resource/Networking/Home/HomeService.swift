@@ -69,6 +69,6 @@ class StubHomeService: HomeServiceType {
     }
     
     func getAllCapsules() async throws -> TimeCapsuleResponse {
-        return .init()
+        return .init(timeCapsuleId: 1, userId: "11", imageUrl: "11", text: "11", createDate: "1", isActive: false, unlockDate: "11")
     }
 }
