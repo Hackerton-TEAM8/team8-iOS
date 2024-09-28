@@ -14,7 +14,7 @@ extension Color {
     static let basicWhite = Color(hex: "FFFFFF")
 
     static let background = Color(hex: "FFFFFF")
-    static let primary = Color(hex: "#FF512B")
+    static let primaryOrange = Color(hex: "#FF512B")
     static let secondary = Color(hex: "#C1FF16")
     static let content = Color(hex: "#424242")
     
