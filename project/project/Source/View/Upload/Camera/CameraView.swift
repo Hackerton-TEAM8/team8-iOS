@@ -14,7 +14,11 @@ struct CameraView: View {
     
     var body: some View {
         ZStack {
-            Color.basicBlack.ignoresSafeArea(.all)
+            uploadViewModel.cameraPreview.ignoresSafeArea()
+                .onAppear {
+                    uploadViewModel.configure()
+                }
+               
             
             VStack {
                 Spacer()
@@ -22,16 +26,19 @@ struct CameraView: View {
                 cameraButton
             }
         }
+        
     }
     
     @ViewBuilder
     var cameraButton: some View {
         if uploadViewModel.isTaken {
 //            let _ =
+            
         } else {
             Button {
                 uploadViewModel.isTaken = true
-                uploadViewModel.send(action: .goToWriting)
+                uploadViewModel.model.capturePhoto()
+                uploadViewModel.send(action: .goToCanvas)
             } label: {
                 Circle()
                     .frame(width: 60, height: 60)
