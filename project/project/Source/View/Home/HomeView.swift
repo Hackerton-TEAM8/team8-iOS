@@ -26,6 +26,9 @@ struct HomeView: View {
 //        .background(.yellow)
         .frame(maxWidth: .infinity)
     }
+//        .task {
+////        awit viewModel.
+//    }
     
     var timeCapsuleView: some View {
         VStack(alignment: .leading) {
