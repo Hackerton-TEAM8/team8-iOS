@@ -14,7 +14,7 @@ import PhotosUI
 class UploadViewModel: ObservableObject {
     
     enum Action {
-        case goToGallery
+//        case goToGallery
         case goToCamera
         case goToCanvas
         case goToWriting
@@ -45,8 +45,8 @@ class UploadViewModel: ObservableObject {
 extension UploadViewModel {
     func send(action: Action) {
         switch action {
-        case .goToGallery:
-            uploadDestination = .gallery
+//        case .goToGallery:
+//            uploadDestination = .gallery
         case .goToCamera:
             uploadDestination = .camera
         case .goToCanvas:

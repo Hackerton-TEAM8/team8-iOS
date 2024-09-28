@@ -25,7 +25,7 @@ struct UploadView: View {
                     
                     Button {
                         // 갤러리
-                        uploadViewModel.send(action: .goToGallery)
+//                        uploadViewModel.send(action: .goToGallery)
                     } label: {
                         VStack {
                             Image(.gallery)
