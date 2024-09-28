@@ -9,6 +9,7 @@ import SwiftUI
 
 struct PhotoDetailView: View {
     @Environment(\.dismiss) var dismiss
+    let imageString: String
     var body: some View {
         VStack{
             HStack{
@@ -23,7 +24,7 @@ struct PhotoDetailView: View {
                 
             }
             Spacer()
-            Image("capsule")
+            Image("\(imageString)")
                 .resizable()
                 .scaledToFit()
           
@@ -37,5 +38,5 @@ struct PhotoDetailView: View {
 }
 
 #Preview {
-    PhotoDetailView()
+    PhotoDetailView(imageString: "testPhoto")
 }

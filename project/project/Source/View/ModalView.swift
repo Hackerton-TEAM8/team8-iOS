@@ -33,15 +33,8 @@ struct ModalView: View {
     
     @ViewBuilder
     var feed: some View {
-        VStack{
-            Spacer()
-        
-            Image("cloud")
-                .resizable()
-                .scaledToFit()
-        }
-        .ignoresSafeArea()
-        LottieView(jsonName:"cloud_F")
+       
+        LottieView(jsonName:"cloud_Main")
             .scaledToFill()
             .frame(width: 300)
             .ignoresSafeArea()

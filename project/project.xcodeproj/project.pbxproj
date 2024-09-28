@@ -12,6 +12,7 @@
 		4B3D0FDC2CA8126A00257244 /* egg_Con.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B3D0FDB2CA8126A00257244 /* egg_Con.json */; };
 		4B3D0FDE2CA82FF000257244 /* String+Extensio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3D0FDD2CA82FF000257244 /* String+Extensio.swift */; };
 		4BA76B7F2CA7EFB50047B9DB /* TimeCapsuleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA76B7E2CA7EFB50047B9DB /* TimeCapsuleRequest.swift */; };
+		4BC3DA502CA889F900A4314C /* cloud_Main.json in Resources */ = {isa = PBXBuildFile; fileRef = 4BC3DA4F2CA889F900A4314C /* cloud_Main.json */; };
 		4BC438892CA688240075BD75 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC438882CA688240075BD75 /* View+Extension.swift */; };
 		4BC4388B2CA69F190075BD75 /* FollowingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC4388A2CA69F190075BD75 /* FollowingDetailView.swift */; };
 		4BC8D85D2CA703F40036EBBD /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = 4BC8D85C2CA703F40036EBBD /* Lottie */; };
@@ -80,6 +81,7 @@
 		4B3D0FDB2CA8126A00257244 /* egg_Con.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = egg_Con.json; sourceTree = "<group>"; };
 		4B3D0FDD2CA82FF000257244 /* String+Extensio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensio.swift"; sourceTree = "<group>"; };
 		4BA76B7E2CA7EFB50047B9DB /* TimeCapsuleRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCapsuleRequest.swift; sourceTree = "<group>"; };
+		4BC3DA4F2CA889F900A4314C /* cloud_Main.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cloud_Main.json; sourceTree = "<group>"; };
 		4BC438882CA688240075BD75 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		4BC4388A2CA69F190075BD75 /* FollowingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingDetailView.swift; sourceTree = "<group>"; };
 		4BC8D85E2CA705890036EBBD /* cloud.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = cloud.json; sourceTree = "<group>"; };
@@ -269,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				6C8361352CA30C4F00E39DE8 /* ImageAssets.xcassets */,
+				4BC3DA4F2CA889F900A4314C /* cloud_Main.json */,
 				4B3D0FDB2CA8126A00257244 /* egg_Con.json */,
 				4BC8D8682CA7C54A0036EBBD /* cloud_F.json */,
 				4BC8D85E2CA705890036EBBD /* cloud.json */,
@@ -557,6 +560,7 @@
 				6C8361362CA30C4F00E39DE8 /* ImageAssets.xcassets in Resources */,
 				7B1ED6092CA8688800A61A68 /* OnboardingCloud.json in Resources */,
 				4B3D0FDC2CA8126A00257244 /* egg_Con.json in Resources */,
+				4BC3DA502CA889F900A4314C /* cloud_Main.json in Resources */,
 				6C8361B32CA705CA00E39DE8 /* Inter-SemiBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
