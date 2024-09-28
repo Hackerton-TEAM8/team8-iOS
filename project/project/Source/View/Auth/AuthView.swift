@@ -20,6 +20,8 @@ struct AuthView: View {
                     .environmentObject(authViewModel)
             case .authenticated:
                 MainTabView()
+                    .environmentObject(container)
+                    .environmentObject(authViewModel)
             }
         }
     }

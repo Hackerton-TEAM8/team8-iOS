@@ -25,7 +25,7 @@ struct MainTabView: View {
                     case .search:
                         SearchView()
                     case .upload:
-                        UploadView()
+                        UploadView(uploadViewModel: .init(container: container))
                     case .mypage:
                         MyPageView()
                    
@@ -44,6 +44,12 @@ struct MainTabView: View {
     }
 }
 
-#Preview {
-    MainTabView()
+struct MainTabView_Previews: PreviewProvider {
+    static let container: DIContainer = .stub
+    
+    static var previews: some View {
+        MainTabView()
+            .environmentObject(container)
+            .environmentObject(AuthenticationViewModel(container: container))
+    }
 }
