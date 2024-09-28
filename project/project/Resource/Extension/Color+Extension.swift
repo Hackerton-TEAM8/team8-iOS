@@ -17,6 +17,7 @@ extension Color {
     static let primaryOrange = Color(hex: "#FF512B")
     static let secondary = Color(hex: "#C1FF16")
     static let content = Color(hex: "#424242")
+    static let backgroundGray = Color(hex: "#F4F4F4")
     
     // font
     static let text1Black = Color(hex: "000000")
