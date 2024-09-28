@@ -26,7 +26,7 @@ extension FollowingViewModel {
     func getAllCapsules() async {
         do {
             // 모든 타임캡슐 요청하여 ViewModel에 있는 allTimeCapsule로 전달
-            try await allTimeCapsule = container.services.homeService.getAllCapsules()
+//            try await allTimeCapsule = container.services.homeService.getAllCapsules()
             
         } catch {
             print("getAllCapsules() error")

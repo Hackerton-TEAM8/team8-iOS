@@ -10,6 +10,7 @@ import SwiftUI
 struct FriendView: View {
     @Environment(\.dismiss) var dismiss
     @State var name: String = ""
+    @FocusState private var nameisForcused: Bool
     var body: some View {
         VStack{
             HStack{
@@ -31,6 +32,7 @@ struct FriendView: View {
             }
             HStack {
                 TextField("친구의 이름, 혹은 아이디를 검색해주세요", text: $name)
+                    .focused($nameisForcused)
                     .font(.body3)
                 Spacer()
                 Image(systemName: "magnifyingglass")
@@ -40,11 +42,11 @@ struct FriendView: View {
                 RoundedRectangle(cornerRadius: 85)
                     .stroke(Color.black, lineWidth: 0.3)
             )
-            if !name.isEmpty {
+            if nameisForcused {
                 FindFriendView
                 FindFriendView
             }
-            if name.isEmpty {
+            if !nameisForcused {
                 HStack{
                     Text("친구 요청")
                         .font(.title)
