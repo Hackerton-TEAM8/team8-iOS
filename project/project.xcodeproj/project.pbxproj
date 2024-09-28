@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4B38F8DB2CA863DF00BE589F /* PhotoDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B38F8DA2CA863DF00BE589F /* PhotoDetailView.swift */; };
+		4B38F8E02CA8689E00BE589F /* FriendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B38F8DF2CA8689E00BE589F /* FriendView.swift */; };
+		4B3D0FDC2CA8126A00257244 /* egg_Con.json in Resources */ = {isa = PBXBuildFile; fileRef = 4B3D0FDB2CA8126A00257244 /* egg_Con.json */; };
+		4B3D0FDE2CA82FF000257244 /* String+Extensio.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B3D0FDD2CA82FF000257244 /* String+Extensio.swift */; };
 		4BA76B7F2CA7EFB50047B9DB /* TimeCapsuleRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BA76B7E2CA7EFB50047B9DB /* TimeCapsuleRequest.swift */; };
 		4BC438892CA688240075BD75 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC438882CA688240075BD75 /* View+Extension.swift */; };
 		4BC4388B2CA69F190075BD75 /* FollowingDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BC4388A2CA69F190075BD75 /* FollowingDetailView.swift */; };
@@ -72,6 +76,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4B38F8DA2CA863DF00BE589F /* PhotoDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoDetailView.swift; sourceTree = "<group>"; };
+		4B38F8DF2CA8689E00BE589F /* FriendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendView.swift; sourceTree = "<group>"; };
+		4B3D0FDB2CA8126A00257244 /* egg_Con.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = egg_Con.json; sourceTree = "<group>"; };
+		4B3D0FDD2CA82FF000257244 /* String+Extensio.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensio.swift"; sourceTree = "<group>"; };
 		4BA76B7E2CA7EFB50047B9DB /* TimeCapsuleRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeCapsuleRequest.swift; sourceTree = "<group>"; };
 		4BC438882CA688240075BD75 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		4BC4388A2CA69F190075BD75 /* FollowingDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FollowingDetailView.swift; sourceTree = "<group>"; };
@@ -149,6 +157,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4B38F8DC2CA8682300BE589F /* Friend */ = {
+			isa = PBXGroup;
+			children = (
+				4B38F8DF2CA8689E00BE589F /* FriendView.swift */,
+			);
+			path = Friend;
+			sourceTree = "<group>";
+		};
+		4BB6456D2CA840820032BE00 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				4BA76B7E2CA7EFB50047B9DB /* TimeCapsuleRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
 		4BC8D86A2CA7D1CE0036EBBD /* Animation */ = {
 			isa = PBXGroup;
 			children = (
@@ -221,6 +245,7 @@
 		6C8361432CA30D6E00E39DE8 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				4BB6456D2CA840820032BE00 /* Request */,
 				6C8361C72CA70D7E00E39DE8 /* Response */,
 			);
 			path = Model;
@@ -229,6 +254,7 @@
 		6C8361442CA30D7200E39DE8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				4B38F8DC2CA8682300BE589F /* Friend */,
 				6C83616A2CA328D600E39DE8 /* Tab */,
 				6C83617C2CA32AEB00E39DE8 /* Auth */,
 				6C8361642CA328B600E39DE8 /* Home */,
@@ -245,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				6C8361352CA30C4F00E39DE8 /* ImageAssets.xcassets */,
+				4B3D0FDB2CA8126A00257244 /* egg_Con.json */,
 				4BC8D8682CA7C54A0036EBBD /* cloud_F.json */,
 				4BC8D85E2CA705890036EBBD /* cloud.json */,
 				7B1ED6082CA8688800A61A68 /* OnboardingCloud.json */,
@@ -268,6 +295,7 @@
 				6C8361482CA3261900E39DE8 /* Font+Extension.swift */,
 				6C83614A2CA3261F00E39DE8 /* Color+Extension.swift */,
 				4BC438882CA688240075BD75 /* View+Extension.swift */,
+				4B3D0FDD2CA82FF000257244 /* String+Extensio.swift */,
 				6C9BD7962CA7E58F00E9A77A /* UIImage+Extension.swift */,
 				7B1ED6062CA8659400A61A68 /* UIImageView+.swift */,
 			);
@@ -416,7 +444,6 @@
 		6C8361C72CA70D7E00E39DE8 /* Response */ = {
 			isa = PBXGroup;
 			children = (
-				4BA76B7E2CA7EFB50047B9DB /* TimeCapsuleRequest.swift */,
 				6C8361C82CA70D8700E39DE8 /* TimeCapsuleResponse.swift */,
 			);
 			path = Response;
@@ -428,6 +455,7 @@
 				4BC8D86B2CA7DD600036EBBD /* FollowingViewModel.swift */,
 				7BB39F0C2CA68B0600CB4984 /* FollowingView.swift */,
 				4BC4388A2CA69F190075BD75 /* FollowingDetailView.swift */,
+				4B38F8DA2CA863DF00BE589F /* PhotoDetailView.swift */,
 			);
 			path = Following;
 			sourceTree = "<group>";
@@ -531,6 +559,7 @@
 				4BC8D85F2CA705890036EBBD /* cloud.json in Resources */,
 				6C8361362CA30C4F00E39DE8 /* ImageAssets.xcassets in Resources */,
 				7B1ED6092CA8688800A61A68 /* OnboardingCloud.json in Resources */,
+				4B3D0FDC2CA8126A00257244 /* egg_Con.json in Resources */,
 				6C8361B32CA705CA00E39DE8 /* Inter-SemiBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -542,6 +571,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4B38F8E02CA8689E00BE589F /* FriendView.swift in Sources */,
 				6C9BD7972CA7E58F00E9A77A /* UIImage+Extension.swift in Sources */,
 				6C8361C02CA70C5000E39DE8 /* FeedAPI.swift in Sources */,
 				6C8361D02CA7136100E39DE8 /* HomeViewModel.swift in Sources */,
@@ -559,6 +589,7 @@
 				6C8361802CA32B3400E39DE8 /* AuthenticationViewModel.swift in Sources */,
 				6C8361792CA329A000E39DE8 /* DIContainer.swift in Sources */,
 				7B1ED60B2CA88A5500A61A68 /* Validator.swift in Sources */,
+				4B38F8DB2CA863DF00BE589F /* PhotoDetailView.swift in Sources */,
 				6C8361492CA3261900E39DE8 /* Font+Extension.swift in Sources */,
 				4BC8D8612CA706050036EBBD /* Lottie.swift in Sources */,
 				7BB39F0F2CA68B2300CB4984 /* SearchView.swift in Sources */,
@@ -573,6 +604,7 @@
 				6C8361C42CA70CD700E39DE8 /* HomeTarget.swift in Sources */,
 				6C9BD7B92CA7EBA100E9A77A /* CameraView.swift in Sources */,
 				6C8361672CA328C800E39DE8 /* MyPageView.swift in Sources */,
+				4B3D0FDE2CA82FF000257244 /* String+Extensio.swift in Sources */,
 				6C8361712CA3293500E39DE8 /* NavigationDestination.swift in Sources */,
 				6C83617E2CA32AFD00E39DE8 /* AuthView.swift in Sources */,
 				6C8361602CA327B200E39DE8 /* Log.swift in Sources */,
