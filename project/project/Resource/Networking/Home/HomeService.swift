@@ -12,7 +12,7 @@ import Moya
 import SwiftUI
 
 protocol HomeServiceType {
-    func getAllCapsules() async throws -> TimeCapsuleResponse
+    func getAllCapsules() async throws -> [TimeCapsuleResponse]
     func createCapsule(timeCapsuleRequest: TimeCapsuleRequest, data: Data?)
 }
 
@@ -21,13 +21,13 @@ class HomeService: HomeServiceType {
     let provider = MoyaProvider<HomeTarget>(plugins: [MoyaLoggingPlugin()])
     
     // TODO: - 응답값 모델 형식에 맞춰 TimeCapsuleResponse 구조체 수정하기
-    func getAllCapsules() async throws -> TimeCapsuleResponse {
+    func getAllCapsules() async throws -> [TimeCapsuleResponse] {
         return try await withCheckedThrowingContinuation { continuation in
             provider.request(.getAllCapsules) { result in
                 switch result {
                 case .success(let response):
                     do {
-                        let decodedResponse = try JSONDecoder().decode(TimeCapsuleResponse.self, from: response.data)
+                        let decodedResponse = try JSONDecoder().decode([TimeCapsuleResponse].self, from: response.data)
                         continuation.resume(returning: decodedResponse)
                         //                        print("response \(decodedResponse)")
                         print("모든 타임캡슐 조회 성공")
@@ -68,7 +68,7 @@ class StubHomeService: HomeServiceType {
         
     }
     
-    func getAllCapsules() async throws -> TimeCapsuleResponse {
-        return .init()
+    func getAllCapsules() async throws -> [TimeCapsuleResponse] {
+        return [.stub01]
     }
 }

@@ -19,13 +19,14 @@ struct FollowingView: View {
                 
                 ScrollView {
                     Spacer()
-                    
-                    ForEach(0..<20) { item in
+                    ForEach(viewModel.allTimeCapsule, id: \.timeCapsuleId) { item in
                         NavigationLink(destination: FollowingDetailView(item: item)) {
                             feedView(item: item)
                                 .padding(EdgeInsets(top: 0, leading: 20, bottom: 0, trailing: 20))
-                                
+                            
+                            
                         }
+                        
                     }
                 }
             }
@@ -44,8 +45,9 @@ struct FollowingView: View {
                 .foregroundStyle(Color.content)
                 .font(.title)
             Spacer()
+            
             Button {
-                viewModel.createCapsule(timeCapsuleRequest: TimeCapsuleRequest(userId: 4,  text: "ㅁㄴㅇㄹㅁㄴㅇㄹㅁㅇㄴㅏ", unlockDate: "2024-02-25T15:35:27", isActive: false), data: nil)
+                viewModel.createCapsule(timeCapsuleRequest: TimeCapsuleRequest(userId: 4, title: "타이틀",  text: "내용", unlockDate: "2024-02-25T00:00:00.000000", isActive: false), data: nil)
             } label: {
                 Image(systemName: "person.badge.plus")
                     .resizable()
@@ -58,12 +60,14 @@ struct FollowingView: View {
     }
     
     @ViewBuilder
-    func feedView(item: Int) -> some View {
+    func feedView(item: TimeCapsuleResponse) -> some View {
         ZStack {
+            
             Image("capsule")
                 .resizable()
                 .scaledToFit()
                 .cornerRadius(15)
+                
             VStack {
                 HStack {
                     Image(systemName: "person.crop.circle")
@@ -71,7 +75,7 @@ struct FollowingView: View {
                         .scaledToFit()
                         .foregroundStyle(.black)
                         .frame(width: 38)
-                    Text("name")
+                    Text("\(item.userId)")
                         .font(.subtitle2)
                         .foregroundStyle(Color.background)
                     Spacer()
@@ -86,12 +90,19 @@ struct FollowingView: View {
                         .cornerRadius(15, corners: [.bottomLeft, .bottomRight])
                     HStack {
                         VStack(alignment: .leading){
-                            Text("\(item)번째 게시글")
+                            Text("\(item.text)")
                                 .font(.capsule)
                                 .foregroundStyle(.background)
-                            Text("2024.07.30 작성 · 2024.09.28 오픈")
-                                .font(.body5)
-                                .foregroundStyle(.background)
+                            
+                            if let formattedCreateDate = item.createDate.formatSSSSSSToDate(), let formattedUnlockDateDate = item.unlockDate.formatSSToDate() {
+                                Text("\(formattedCreateDate) 작성 · \(formattedUnlockDateDate) 오픈")
+                                    .font(.body5)
+                                    .foregroundStyle(.background)
+                            } else {
+                                Text("날짜 형식이 맞지 않습니다.") // 또는 기본값을 제공할 수 있습니다.
+                                    .font(.body5)
+                                    .foregroundStyle(.background)
+                            }
                         }
                         Spacer()
                         VStack(alignment: .center) {
@@ -111,7 +122,7 @@ struct FollowingView: View {
                                 .foregroundStyle(.background)
                                 .font(.body4)
                         }
-                         
+                        
                     }
                     .padding(.leading, 16)
                     .padding(.trailing, 16)
@@ -120,8 +131,8 @@ struct FollowingView: View {
             }
         }
         .padding(.top, 24)
-     
-
+        
+        
         
     }
     
@@ -135,3 +146,4 @@ struct FollowingView: View {
         FollowingView(viewModel: .init(container: .stub))
     }
 }
+

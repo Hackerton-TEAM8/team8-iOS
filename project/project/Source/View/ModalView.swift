@@ -17,10 +17,12 @@ struct ModalView: View {
             if isClcik {
                 feed
                 
+                
             } else {
                 LottieView(jsonName: "egg_Con")
                     .onTapGesture {
                         isClcik.toggle()
+                        
                     }
             }
             
